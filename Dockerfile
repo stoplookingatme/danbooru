@@ -41,7 +41,7 @@ EOS
 # The base layer for building dependencies. All builds take place inside /build.
 FROM base AS build-base
 WORKDIR /build
-ARG COMMON_BUILD_DEPS="curl ca-certificates build-essential pkg-config git libpcre++-dev"
+ARG COMMON_BUILD_DEPS="curl ca-certificates build-essential pkg-config git libpcre2-dev"
 RUN apt-get install -y --no-install-recommends $COMMON_BUILD_DEPS
 
 
