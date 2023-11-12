@@ -28,6 +28,7 @@ ARG NODE_VERSION="18.x"
 
 # The base layer for everything.
 FROM ubuntu:22.04 AS base
+#A little change here to fix broken Ubuntu repos
 SHELL ["/bin/bash", "-xeuo", "pipefail", "-O", "globstar", "-O", "dotglob", "-c"]
 ENV DEBIAN_FRONTEND="noninteractive"
 RUN <<EOS
