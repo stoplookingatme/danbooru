@@ -41,7 +41,7 @@ EOS
 # The base layer for building dependencies. All builds take place inside /build.
 FROM base AS build-base
 WORKDIR /build
-ARG COMMON_BUILD_DEPS="curl ca-certificates build-essential pkg-config git libpcre2-dev"
+ARG COMMON_BUILD_DEPS="curl ca-certificates build-essential pkg-config git libpcre++-dev"
 RUN apt-get install -y --no-install-recommends $COMMON_BUILD_DEPS
 
 
@@ -171,7 +171,7 @@ EOS
 # Build OpenResty. Output is in /usr/local.
 FROM build-base AS build-openresty
 ARG OPENRESTY_URL
-ARG OPENRESTY_BUILD_DEPS="libssl-dev libpcre2-dev zlib1g-dev"
+ARG OPENRESTY_BUILD_DEPS="libssl-dev libpcre++-dev zlib1g-dev"
 ARG OPENRESTY_BUILD_OPTIONS="\
  --with-threads --with-compat --with-pcre-jit --with-file-aio \
  --with-http_gunzip_module --with-http_gzip_static_module \
