@@ -171,7 +171,7 @@ EOS
 # Build OpenResty. Output is in /usr/local.
 FROM build-base AS build-openresty
 ARG OPENRESTY_URL
-ARG OPENRESTY_BUILD_DEPS="libssl-dev libpcre++-dev zlib1g-dev"
+ARG OPENRESTY_BUILD_DEPS="libssl-dev libpcre2-dev zlib1g-dev"
 ARG OPENRESTY_BUILD_OPTIONS="\
  --with-threads --with-compat --with-pcre-jit --with-file-aio \
  --with-http_gunzip_module --with-http_gzip_static_module \
@@ -246,7 +246,7 @@ COPY --link --from=build-node /usr/local /usr/local
 RUN <<EOS
   apt-get install -y --no-install-recommends \
     postgresql-client-${POSTGRESQL_CLIENT_VERSION} ca-certificates mkvtoolnix rclone openssl perl perl-modules libpq5 \
-    libgmpxx4ldbl zlib1g libfftw3-3 libwebp7 libwebpmux3 libwebpdemux2 liborc-0.4.0 liblcms2-2 libpng16-16 libexpat1 \
+    libgmpxx4ldbl zlib1g libfftw3-bin libwebp7 libwebpmux3 libwebpdemux2 liborc-0.4.0 liblcms2-2 libpng16-16 libexpat1 \
     libglib2.0 libgif7 libexif12 libheif1 libvpx7 libdav1d6 libseccomp-dev libjemalloc2 libarchive13 libyaml-0-2 libffi8 \
     libreadline8 libarchive-zip-perl tini busybox less ncdu curl
 
