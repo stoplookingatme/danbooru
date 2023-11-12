@@ -20,7 +20,7 @@ ARG MOZJPEG_URL="https://github.com/mozilla/mozjpeg/archive/refs/tags/v4.1.1.tar
 ARG VIPS_URL="https://github.com/libvips/libvips/releases/download/v8.14.2/vips-8.14.2.tar.xz"
 ARG FFMPEG_URL="https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.0.tar.gz"
 ARG EXIFTOOL_URL="https://github.com/exiftool/exiftool/archive/refs/tags/12.56.tar.gz"
-ARG OPENRESTY_URL="https://openresty.org/download/openresty-1.21.4.1.tar.gz"
+ARG OPENRESTY_URL="https://openresty.org/download/openresty-1.21.4.3.tar.gz"
 ARG RUBY_URL="https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.1.tar.gz"
 ARG POSTGRESQL_CLIENT_VERSION="14"
 ARG NODE_VERSION="18.x"
@@ -41,7 +41,7 @@ EOS
 # The base layer for building dependencies. All builds take place inside /build.
 FROM base AS build-base
 WORKDIR /build
-ARG COMMON_BUILD_DEPS="curl ca-certificates build-essential pkg-config git"
+ARG COMMON_BUILD_DEPS="curl ca-certificates build-essential pkg-config git libpcre2-dev"
 RUN apt-get install -y --no-install-recommends $COMMON_BUILD_DEPS
 
 
